@@ -12,16 +12,17 @@
     <button class="btn btn-primary mb-4" :disabled="isDisabled && apiProgress" @click="add">Add</button>
     <br>
     <button class="btn btn-outline-secondary btn-sm float-start" @click="showData(page - 1)"
-            v-show="page > 1">Previous</button>
+            v-show="page > 1">Previous
+    </button>
     <button class="btn btn-outline-secondary btn-sm float-end" @click="showData(page + 1)"
-            v-show="allMessages.length>=10">Next</button>
+            v-show="allMessages.length>=10">Next
+    </button>
     <br>
-    <ul class="list-group list-group-flush text-center mt-3">
-      <li class="list-group-item list-group-item-action">
-        <Card v-for="card in allMessages" :key="card.email" :card="card"/>
-      </li>
+    <ul class="list-group list-group-flush">
+      <div class="row">
+        <Card class="col-md-4" v-for="card in allMessages" :key="card.email" :card="card"/>
+      </div>
     </ul>
-
   </div>
 </template>
 
