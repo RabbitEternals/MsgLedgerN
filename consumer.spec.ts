@@ -44,8 +44,7 @@ pactWith(
                 return provider.addInteraction(interaction);
             });
             it('Given page When request loadData Then should return emails and messages', async () => {
-                process.env.apiBaseUrl = "http://localhost:8080"
-                    //provider.mockService.baseUrl;
+                process.env.apiBaseUrl = provider.mockService.baseUrl;
                 console.log("XXX "+ process.env.apiBaseUrl);
                 await loadMessages(page);
             });
