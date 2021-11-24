@@ -26,6 +26,9 @@
     "babel-jest": "^27.0.5",
     "jest": "^27.0.5",
     "msw": "^0.35.0",
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^3.0.4",
+    "jest-pact": "^0.9.1",
+    "ts-jest": "^27.0.7",
+    "@pact-foundation/pact": "^9.16.5"
   }
 }
