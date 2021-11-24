@@ -52,6 +52,10 @@ export default {
             email: this.email,
             message: this.message
           }).then(() => {
+            this.allMessages.push({
+              email: this.email,
+              message: this.message
+            });
             this.email = "";
             this.message = "";
           });
