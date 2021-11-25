@@ -3,24 +3,24 @@
     <div class="mb-3">
       <label for="emailField" class="form-label">Email</label>
       <input id="emailField" type="email" class="form-control" placeholder="Email" v-model="email"/>
-      <span class="badge badge-pill badge-danger" v-show="showHelp" style="background-color: red">Invalid mail</span>
+      <span id="errorSpan" class="badge badge-pill badge-danger" v-show="showHelp" style="background-color: red">Invalid mail</span>
     </div>
     <div class="mb-3">
       <label for="messageField" class="form-label">Message</label>
       <input id="messageField" class="form-control" placeholder="Message" v-model="message"/>
     </div>
-    <button class="btn btn-primary mb-4" :disabled="isDisabled && apiProgress" @click="add">Add</button>
+    <button id="addButton" class="btn btn-primary mb-4" :disabled="isDisabled && apiProgress" @click="add">Add</button>
     <br>
-    <button class="btn btn-outline-secondary btn-sm float-start" @click="showData(page - 1)"
+    <button id="previousButton" class="btn btn-outline-secondary btn-sm float-start" @click="showData(page - 1)"
             v-show="page > 1">Previous
     </button>
-    <button class="btn btn-outline-secondary btn-sm float-end" @click="showData(page + 1)"
+    <button id="nextButton" class="btn btn-outline-secondary btn-sm float-end" @click="showData(page + 1)"
             v-show="allMessages.length>=10">Next
     </button>
     <br>
     <ul class="list-group list-group-flush">
       <div class="row">
-        <Card class="col-md-4" v-for="card in allMessages" :key="card.email" :card="card"/>
+        <Card :id="'card'+card.id" class="col-md-4" v-for="card in allMessages" :key="card.email" :card="card"/>
       </div>
     </ul>
   </div>
@@ -40,7 +40,8 @@ export default {
       allMessages: [],
       showHelp: false,
       page: 1,
-      apiProgress: false
+      apiProgress: false,
+      num:0
     }
   },
   methods: {
@@ -54,8 +55,10 @@ export default {
           }).then(() => {
             this.allMessages.push({
               email: this.email,
-              message: this.message
+              message: this.message,
+              id:this.num
             });
+            this.num++;
             this.email = "";
             this.message = "";
           });
@@ -70,8 +73,18 @@ export default {
     async showData(pageIndex) {
       this.apiProgress = true;
       const response = await loadMessages(pageIndex);
+      this.allMessages = [];
+      this.num = 0;
       this.page = pageIndex;
-      this.allMessages = response.data;
+      //this.allMessages = response.data;
+      for (const element of response.data) {
+        this.allMessages.push({
+          id:this.num,
+          email: element.email,
+          message: element.message
+        });
+        this.num++
+      }
       this.apiProgress = false;
     }
   },

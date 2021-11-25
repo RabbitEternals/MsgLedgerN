@@ -1,8 +1,8 @@
 <template>
   <div class="card border-secondary mb-3" style="max-width: 28rem;">
-    <div class="card-header">{{ card.email }}</div>
+    <div class="card-header" :id="'email'+card.id">{{ card.email }}</div>
     <div class="card-body text-secondary">
-      <h5 class="card-title">{{ card.message }}</h5>
+      <h5 class="card-title" :id="'message'+card.id">{{ card.message }}</h5>
     </div>
   </div>
 </template>
