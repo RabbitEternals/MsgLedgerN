@@ -1,5 +1,5 @@
 import {render, screen, waitFor} from "@testing-library/vue";
-import LedgerPage from "../pages/LedgerPage";
+import LedgerPage from "../../pages/LedgerPage";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import {rest} from "msw";

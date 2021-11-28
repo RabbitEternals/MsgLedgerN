@@ -8,7 +8,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "test": "jest",
-    "test:consumer": "jest consumer.spec.ts"
+    "test:unit": "jest --testPathIgnorePatterns=test/contract",
+    "test:consumer": "jest --testPathPattern=test/contract"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",

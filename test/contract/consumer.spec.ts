@@ -1,6 +1,6 @@
 import {InteractionObject, Pact} from "@pact-foundation/pact";
 import {pactWith} from "jest-pact";
-import {loadMessages, createMessage} from './api/apiCalls';
+import {loadMessages, createMessage} from '../../api/apiCalls';
 import {like, term} from "@pact-foundation/pact/src/dsl/matchers";
 import axios from "axios";
 
