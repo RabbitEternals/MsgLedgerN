@@ -32,9 +32,9 @@ pactWith(
               matcher: '/list'
             }),
             query: `page=${page}`,
-            /*headers: {
-              Accept: 'application/json; charset=utf-8'
-            }*/
+            headers: {
+              Accept: 'application/json;charset=utf-8'
+            }
           },
           willRespondWith: {
             status: 200,
@@ -65,7 +65,7 @@ pactWith(
               matcher: '/create'
             }),
             headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json;charset=utf-8',
             },
             body: createData
           },
