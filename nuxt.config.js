@@ -42,7 +42,7 @@ export default {
   server: {
     port: 8081,
   },
-  axios:{
+  /*axios:{
     proxy:true
   },
   proxy:{
@@ -52,5 +52,5 @@ export default {
     "/list": {
       target: "http://localhost:8080",
     },
-  }
+  }*/
 }

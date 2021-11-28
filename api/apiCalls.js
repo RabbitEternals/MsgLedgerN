@@ -5,5 +5,5 @@ export const createMessage = (body) => {
 }
 
 export const loadMessages = (page) => {
-    return axios.get("/list?page=" + page);
+  return axios.get("/list?page=" + page);
 }
