@@ -31,7 +31,10 @@ pactWith(
               generate: `/list`,
               matcher: '/list'
             }),
-            query: `page=${page}`,
+            query: {page: term({
+              generate: `${page}`,
+              matcher: '[0-9]*'
+            })},
             headers: {
               Accept: 'application/json;charset=utf-8'
             }
@@ -67,7 +70,7 @@ pactWith(
             headers: {
               'Content-Type': 'application/json;charset=utf-8',
             },
-            body: createData
+            body: like(createData)
           },
           willRespondWith: {
             status: 200,

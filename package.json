@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "test": "jest",
     "test:unit": "jest --testPathIgnorePatterns=test/contract",
-    "test:consumer": "jest --testPathPattern=test/contract"
+    "test:consumer": "jest --testPathPattern=test/contract",
+    "chrome": "open -n -a /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --args --user-data-dir=\"/tmp/chrome_dev_test\" --disable-web-security"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
