@@ -1,3 +1,5 @@
+
+loadEnvironmentVariables()
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -31,26 +33,25 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
-    '@nuxtjs/axios',
-    '@nuxtjs/proxy'
+    'bootstrap-vue/nuxt'
   ],
-
+  env: {
+    apiBaseURL: process.env.API_BASE_URL,
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   server: {
     port: 8081,
   },
-  /*axios:{
-    proxy:true
-  },
-  proxy:{
-    "/create": {
-      target: "http://localhost:8080",
-    },
-    "/list": {
-      target: "http://localhost:8080",
-    },
-  }*/
+
+}
+
+function loadEnvironmentVariables() {
+  const production = process.env.NODE_ENV === 'production'
+  if (production) {
+    require('dotenv').config({path: './.environment/production'})
+  } else {
+    require('dotenv').config({path: './.environment/local'})
+  }
 }
