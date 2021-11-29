@@ -1,4 +1,3 @@
-
 loadEnvironmentVariables()
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -44,7 +43,6 @@ export default {
   server: {
     port: 8081,
   },
-
 }
 
 function loadEnvironmentVariables() {
