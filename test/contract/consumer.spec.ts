@@ -5,7 +5,7 @@ import {like, term} from "@pact-foundation/pact/src/dsl/matchers";
 import axios from "axios";
 
 pactWith(
-  {consumer: 'ledgerm', provider: 'guestLedgerM', cors: true},
+  {consumer: 'ledger', provider: 'guestLedger', cors: true},
   (provider: Pact) => {
     describe("Get messages", () => {
       const page = 1;
