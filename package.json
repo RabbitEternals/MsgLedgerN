@@ -11,7 +11,7 @@
     "test:unit": "jest --testPathIgnorePatterns=test/contract",
     "test:consumer": "jest --testPathPattern=test/contract",
     "chrome": "open -n -a /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --args --user-data-dir=\"/tmp/chrome_dev_test\" --disable-web-security",
-    "pact:publish": "pact-broker publish pact/pacts/ --consumer-app-version=\"$(npm -v ledger)\" --tag-with-git-branch --broker-base-url=https://msg.pactflow.io --broker-token=41gEOjONrn-YpjLXFjNmbQ"
+    "pact:publish": "pact-broker publish pact/pacts/ --consumer-app-version=\"$(npm -s run env echo '$npm_package_version')\" --tag-with-git-branch --broker-base-url=https://msg.pactflow.io --broker-token=41gEOjONrn-YpjLXFjNmbQ"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
